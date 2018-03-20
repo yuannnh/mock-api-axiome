@@ -1,4 +1,4 @@
-image: node:latest
+image: dockerproxy-iva.si.francetelecom.fr/node:latest
 
 stages:
   - build
