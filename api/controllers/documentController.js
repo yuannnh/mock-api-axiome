@@ -3,7 +3,6 @@ var mongoose = require('mongoose'),
 
 
 exports.list_docs = function(req, res) {
-  console.log(req.query)
   if (req.query.keywords){
     find_doc_by_keywords(req, res);
   } else {
