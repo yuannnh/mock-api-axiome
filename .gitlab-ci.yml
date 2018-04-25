@@ -4,10 +4,13 @@ services:
   - name: dockerproxy-iva.si.francetelecom.fr/mongo:latest
     alias: mongo
   
+stages:
+  - restore
+  - test
 
-
-test:
-  stage: test
+restore:
+  stage: restore
+  image:dockerproxy-iva.si.francetelecom.fr/mongo:latest
   tags: 
     - docker
     - devopsstore
@@ -17,8 +20,7 @@ test:
     - rsc
 
   script:
-    - npm install -g forever
-    - foreter start server.js
-    - wget localhost:3000
+    - mongorestore --host mongo:27017 --db "ApiAxiomeDB" --drop --collection "documents" "./ApiAxiomeDB/documents.bson"
+    - mongorestore --host mongo:27017 --db "ApiAxiomeDB" --drop --collection "rankings" "./ApiAxiomeDB/rankings.bson"
 
     
