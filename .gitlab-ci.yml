@@ -33,6 +33,7 @@ run:
     - rsc
   
   script:
-    - npm start
+    - npm install
+    
   
 
