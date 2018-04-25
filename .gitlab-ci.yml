@@ -1,5 +1,3 @@
-
-
 services:
   - name: dockerproxy-iva.si.francetelecom.fr/mongo:latest
     alias: mongo
@@ -8,17 +6,16 @@ stages:
   - restore
   - test
 
-tags: 
+restore:
+  stage: restore
+  image: dockerproxy-iva.si.francetelecom.fr/mongo:latest
+  tags: 
     - docker
     - devopsstore
     - docker-privileged
     - devwatt
     - shared
     - rsc
-
-restore:
-  stage: restore
-  image: dockerproxy-iva.si.francetelecom.fr/mongo:latest
 
   script:
     - mongorestore --host mongo:27017 --db "ApiAxiomeDB" --drop --collection "documents" "./ApiAxiomeDB/documents.bson"
