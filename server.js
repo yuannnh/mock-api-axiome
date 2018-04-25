@@ -7,7 +7,7 @@ var express = require('express'),
   bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://mongo/ApiAxiomeDB');
+mongoose.connect('mongodb://mongo:27017/ApiAxiomeDB');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
