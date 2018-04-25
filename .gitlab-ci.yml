@@ -21,4 +21,18 @@ restore:
     - mongorestore --host mongo:27017 --db "ApiAxiomeDB" --drop --collection "documents" "./ApiAxiomeDB/documents.bson"
     - mongorestore --host mongo:27017 --db "ApiAxiomeDB" --drop --collection "rankings" "./ApiAxiomeDB/rankings.bson"
 
+run:
+  stage: restore
+  image: dockerproxy-iva.si.francetelecom.fr/node:latest
+  tags: 
+    - docker
+    - devopsstore
+    - docker-privileged
+    - devwatt
+    - shared
+    - rsc
+  
+  script:
+    - npm start
+  
 
