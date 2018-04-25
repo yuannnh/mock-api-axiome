@@ -1,22 +1,21 @@
 image: dockerproxy-iva.si.francetelecom.fr/node:latest
 
-stages:
-  - build
-  - test
+services:
+  - dockerproxy-iva.si.francetelecom.fr/mongo:latest
+  
 
-cache:
-  paths:
-    - node_modules/
 
-install_dependencies:
-  stage: build
+test:
+  stage: test
   tags: 
     - docker
-    - rsc
+    - devopsstore
+    - docker-privileged
+    - devwatt
     - shared
+    - rsc
 
   script:
-    - npm install
-  artifacts:
-    paths:
-      - node_modules/
+    - npm start
+    - wget http://localhost:3000
+    
