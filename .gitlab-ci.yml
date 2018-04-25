@@ -17,6 +17,8 @@ test:
     - rsc
 
   script:
-    - npm start
+    - npm install -g forever
+    - foreter start server.js
+    - wget localhost:3000
 
     
