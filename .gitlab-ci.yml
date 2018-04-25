@@ -10,7 +10,7 @@ stages:
 
 restore:
   stage: restore
-  image:dockerproxy-iva.si.francetelecom.fr/mongo:latest
+  image: dockerproxy-iva.si.francetelecom.fr/mongo:latest
   tags: 
     - docker
     - devopsstore
