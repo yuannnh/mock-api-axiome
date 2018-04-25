@@ -2,7 +2,7 @@ image: dockerproxy-iva.si.francetelecom.fr/node:latest
 
 services:
   - name: dockerproxy-iva.si.francetelecom.fr/mongo:latest
-  - alias: mongo
+    alias: mongo
   
 
 
