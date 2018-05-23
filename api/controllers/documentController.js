@@ -53,7 +53,8 @@ exports.del_doc_by_id = function(req, res) {
 
 
 find_doc_by_keywords = function(req, res) {
-  var keywords = req.params 
+  var keywords = req.query.keywords.split(","); 
+  console.log(keywords);
   Document.find({keywords:{$all:keywords}}, function(err, doc) {
     if (err)
       res.send(err);
